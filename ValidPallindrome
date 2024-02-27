@@ -1,0 +1,28 @@
+class Solution {
+    public boolean isPalindrome(String s) 
+    {
+        s=s.toLowerCase();
+        String d="";
+        for(int i=0;i<s.length();i++)
+        {
+            int c=s.charAt(i);
+            if(c>=97 && c<=122 || c>=48 && c<=57) d+=s.charAt(i);
+        }
+        int low=0;
+        int high=d.length()-1;
+        boolean stat=true;
+        while(low<=high)
+        {
+            if(d.charAt(low)==d.charAt(high)) 
+            {
+                stat=true;
+                low++;
+                high--;
+            }
+            else 
+            {
+                stat=false;
+                break;
+            }
+        }
+        return stat; 
