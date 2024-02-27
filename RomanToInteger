@@ -1,0 +1,22 @@
+class Solution 
+{
+    public int romanToInt(String s) 
+    {
+        int res=0;
+        Map<Character,Integer> arr= new HashMap<Character,Integer>(); // creating a map for mapping the roman values
+        arr.put('I',1);
+        arr.put('V',5);
+        arr.put('X',10);
+        arr.put('L',50);
+        arr.put('C',100);
+        arr.put('D',500);
+        arr.put('M',1000);
+        for(int i=0;i<s.length();i++) // traversing through the loop
+        {
+            if(i+1<s.length() && arr.get(s.charAt(i))<arr.get(s.charAt(i+1)))  // checking whether the current roman letter is lesse than next one if yes then substract the values
+              res-=arr.get(s.charAt(i)); 
+            else res+=arr.get(s.charAt(i)); // else add the values
+        }
+        return res;
+    }
+}
