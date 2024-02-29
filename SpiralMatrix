@@ -1,0 +1,41 @@
+class Solution 
+{
+    public List<Integer> spiralOrder(int[][] arr) 
+    {
+        List<Integer> al= new ArrayList<Integer>();
+		int n=arr.length;
+        int m=arr[0].length;
+		int rows=0;  int rowe=n;
+		int cols=0;  int cole=m;
+		int num=1;
+		while(rows<rowe &&  cols<cole)
+		{
+			for(int i=cols;i<cole;i++)
+			{
+				al.add(arr[rows][i]);
+			}
+			rows+=1;
+			
+			for(int j=rows;j<rowe;j++)
+			{
+				al.add(arr[j][cole-1]);
+			}
+			cole-=1;
+			
+      if(!(cols<cole && rows<rowe)) break; // condition for single row or column matrix
+
+			for(int i=cole-1;i>=cols;i--)
+			{
+				al.add(arr[rowe-1][i]);
+			}
+			rowe-=1;
+
+			for(int i=rowe-1;i>=rows;i--)
+			{
+				al.add(arr[i][cols]);
+            }
+			cols+=1;	
+		}
+        return al;
+    }
+}
