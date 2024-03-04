@@ -1,0 +1,49 @@
+class Solution 
+{
+    public int divide(int dividend, int divisor) 
+    {
+        if (dividend == 0)
+            return 0;
+        else if(dividend==Integer.MIN_VALUE)
+        {
+            if(divisor==-1)  return Integer.MAX_VALUE;
+            else if(divisor==1) return Integer.MIN_VALUE;
+            else return help(-2147483648,divisor);
+        } 
+        else if(dividend==Integer.MAX_VALUE)
+        {
+            if(divisor==-1)  return -1*(Integer.MAX_VALUE);
+            else if(divisor==1) return Integer.MAX_VALUE;
+            else return help(2147483647,divisor);
+        }
+        else
+        {
+            return help(dividend,divisor);
+        }
+    }
+    public  int help(long x,long y)
+    {
+        int sign = 1;
+        long count = 0;
+        if ((x < 0 && y < 0) || (x > 0 && y > 0))
+            sign = 1;
+        else sign = -1;
+
+        long c = Math.abs(x);
+        long d = Math.abs(y);
+        long quotient=0;
+         while (c >= d) 
+         {
+		    long temp = d, multiple = 1;
+		    while (c >= (temp << 1)) 
+            {
+		        temp <<= 1;
+		        multiple <<= 1;
+		    }
+		    c -= temp;
+		    quotient += multiple;
+		}
+	return (int) quotient*sign;
+    }
+    
+}
