@@ -10,19 +10,19 @@ class Solution {
             if(nums[i]==nums[i+1]) count++;
             else 
             {
-                if(max<count)
+                if(max<count) // if the array have some high frequency
                 {
                     max=count;
                     c=count;
                 }
-                else if(max==count)
+                else if(max==count) // if numbers have the same number of frequency
                 {
                     c+=max;
                 }
                 count=1;
             }
         }
-        if (count > max) 
+        if (count > max)  // if all the elements have same number
         {
             c = count; 
         }
