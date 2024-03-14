@@ -1,0 +1,50 @@
+class Solution 
+{
+    public List<String> letterCombinations(String digits) 
+    {
+                 List<String> ls = new ArrayList<>();
+	            ls.add("");
+	            ls.add("abc");
+	            ls.add("def");
+	            ls.add("ghi");
+	            ls.add("jkl");
+	            ls.add("mno");
+	            ls.add("pqrs");
+	            ls.add("tuv");
+	            ls.add("wxyz");
+                List<String> first = new ArrayList<>();
+                if(digits.length()>0)
+                {
+	            
+	            int first1 = Integer.parseInt(String.valueOf(digits.charAt(0)));
+	            String s = ls.get(first1-1);
+	            for (int i = 0; i < s.length(); i++) 
+	            {
+	                first.add(s.charAt(i) + "");
+	            }
+	            //System.out.println(first);
+	            if (digits.length() > 1) 
+	            {
+	                for (int i = 1; i < digits.length(); i++) 
+	                {
+	                    int value=Integer.parseInt(String.valueOf(digits.charAt(i)));//(digits.charAt(i)-48)-1;
+	                    String str= ls.get(value-1);
+	                    List<String>dummy=new ArrayList<>();
+	                    for(int j=0;j<first.size();j++)
+	                    {
+	                        for (int k=0;k<str.length();k++)
+	                        {
+	                            dummy.add(first.get(j)+str.charAt(k));
+	                      
+	                        }
+	                    }
+	                    first = new ArrayList<>(dummy);
+	                }
+	            }
+	            return first;
+                }
+                else return first;
+	        }
+	   
+
+}
