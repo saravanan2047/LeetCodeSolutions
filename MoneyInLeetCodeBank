@@ -1,0 +1,23 @@
+class Solution {
+    public int totalMoney(int n) 
+    {
+        if(n<=7) 
+            return n*(n+1)/2;
+        else if(n/7>=1)
+        {
+            int temp=n/7;
+            int res=28;
+            for(int i=0;i<temp-1;i++)
+                res+=28+(7*(i+1));
+            int t=n%7;
+            int r=temp+1;
+            for(int i=0;i<t;i++)
+            {
+                res+=r;
+                r++;
+            }
+            return res;
+        }
+        return 0;   
+    }
+}
