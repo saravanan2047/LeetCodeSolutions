@@ -1,0 +1,13 @@
+class Solution {
+    public int subtractProductAndSum(int n) 
+    {
+        String m=n+"";
+        int sum=0, pro=1;
+        for(int i=0;i<m.length();i++)
+        {
+            sum+=Character.getNumericValue(m.charAt(i));
+            pro*=Character.getNumericValue(m.charAt(i));
+        }
+        return pro-sum;
+    }
+}
