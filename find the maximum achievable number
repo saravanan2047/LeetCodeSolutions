@@ -1,0 +1,5 @@
+class MaxAchievable
+{
+public int maxAcievable(int num, int t)
+  return num+2*t;
+}
