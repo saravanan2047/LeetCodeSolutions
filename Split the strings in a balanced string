@@ -1,0 +1,32 @@
+class Solution {
+    public int balancedStringSplit(String s) 
+    {
+        int count=0;
+        for(int i=0;i<s.length();i++)
+        {
+            for(int j=i+1;j<s.length();j++)
+            {
+                String g=s.substring(i,j+1);
+                System.out.println(g);
+                if(help(g)) 
+                {
+                    count++;
+                    i=j+1;
+                }
+            }
+        }
+        return count;
+    }
+    public static boolean help(String s)
+    {
+        s=s.toUpperCase();
+        int l=0;
+        int r=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='L') l++;
+            else r++;
+        }
+        return l==r;
+    }
+}
