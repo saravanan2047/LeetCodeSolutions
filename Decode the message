@@ -1,0 +1,26 @@
+class Solution {
+    public String decodeMessage(String key, String message) 
+    {
+        String res="";
+        String f="";
+        for(int i=0;i<key.length();i++)
+        {
+            if(key.charAt(i)!=' ' && !res.contains(""+key.charAt(i)))
+            {
+                res+=key.charAt(i);
+            }
+        }
+        for(int j=0;j<message.length();j++)
+        {
+            if(message.charAt(j)!=' ')
+            {
+                 f+=(char)(97+res.indexOf(message.charAt(j)));
+            }
+            else
+            {
+                f+=' ';
+            }
+        }
+        return f;   
+    }
+}
