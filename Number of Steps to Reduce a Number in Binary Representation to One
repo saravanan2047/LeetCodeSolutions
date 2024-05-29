@@ -1,0 +1,27 @@
+class Solution {
+    public int numSteps(String s) {
+        int c=0;
+        int len=s.length()-1;
+        int carry=0;
+
+        while(len>0)
+        {
+            if(s.charAt(len)-'0'==0 && carry==0)
+            {
+                c++;
+            }
+            else if(s.charAt(len)-'0'==1 && carry==1)
+            {
+                c++;
+            }else
+            {
+                c+=2;
+                carry=1;
+            }
+            len--;
+        }
+        if(carry==1)
+        c++;
+    return c;        
+    }
+}
