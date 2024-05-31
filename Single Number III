@@ -1,0 +1,23 @@
+class Solution {
+    public int[] singleNumber(int[] nums) 
+    {
+        Map<Integer,Integer> map =  new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+        {
+           map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+        List<Integer> al= new ArrayList<>();
+        for(Map.Entry e:map.entrySet())
+        {
+            if((int)e.getValue()==1)
+                al.add((int)e.getKey());
+        }
+        int[] arr = new int[al.size()];
+ 
+        // ArrayList to Array Conversion
+        for (int i = 0; i < al.size(); i++)
+            arr[i] = al.get(i);
+
+            return arr;
+    }
+}
